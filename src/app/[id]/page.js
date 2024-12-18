@@ -66,7 +66,6 @@ export default async function Status( { params } ) {
                      <Link className="underline" href={`/${id}/download`}>Visit Download Link</Link>
                  </div>
                  : 
-
                  <>
                      <br />
                      <div className="info-pane-row">
@@ -74,6 +73,11 @@ export default async function Status( { params } ) {
                          <br />
                          <div className="block job-pane-row-right">{data.message}</div>
                      </div>
+
+                     {(data.detail == "failure") ? <div>
+                                                       <span className="error-message">{data.payload}</span>
+
+                                                   </div> : <></>}
                  </>
                 }
             </div>

@@ -7,7 +7,9 @@ const nextConfig = {
     ],
     serverActions: {
       bodySizeLimit: '2gb',
-      allowedOrigins: ["whisper.talkbank.org", "localhost:3000"]
+      allowedOrigins: [
+      "whisper.talkbank.org",
+      "localhost:3000"]
     },
   },
 }
