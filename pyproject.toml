@@ -1,0 +1,15 @@
+[project]
+name = "balite"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "batchalign>=0.7.7a4",
+    "celery>=5.4.0",
+    "fastapi[standard]>=0.115.6",
+    "gunicorn>=23.0.0",
+    "python-multipart>=0.0.20",
+    "rich>=13.9.4",
+    "setuptools>=75.6.0",
+]
