@@ -1,0 +1,5 @@
+{
+  "https://sla2.talkbank.org/authUI/authModals.js": { "integrity": "sha512-Z8BWHVheX6PFMkJz8G6Oq0P525cS98rLdLoV1G3MOO1Jd8PbbIjlLOgpaYRWC9e8wZdtWDJKKu5h7WrNcphFsQ==", "contentType": "application/javascript; charset=UTF-8" },
+  "https://sla2.talkbank.org/authUI/authModalsCSS.js": { "integrity": "sha512-YtfiVemGd5EUa4fC+bKJKxU268HmZGmKctcwYm700bfhEmXpr1QVeqxCp8gf/xNZ2kaNCcNLQS7XDK+xkJFN0w==", "contentType": "application/javascript; charset=UTF-8" },
+  "version": 1
+}

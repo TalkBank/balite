@@ -1,41 +1,18 @@
-import "./home.css";
-import Form from "./form.js";
-import { redirect } from 'next/navigation';
+import Home from "./home.js";
+import Auth from "./auth.js";
 
-export default function Home() {
-    async function submitForm(previousState, formData) {
-        "use server";
+export default async function App() {
+    const data = await (await fetch('https://sla2.talkbank.org/sessionHasAuth', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({rootName: 'data', path: 'whisper'})
+    })).json();
 
-        const submit_endpoint = new URL(process.env.API_ENDPOINT);
-        let data = {};
-        try {
-            data = await (await fetch(submit_endpoint, {
-                method: "POST",
-                body: formData
-            })).json();
-        } catch (_) {
-            // the server has gone crazy
-            let encoded = encodeURIComponent(JSON.stringify({"message": "We encountered an internal server error when processing your transcript. Please try again or reach out for help.", "payload": ""}));
-            redirect(`/?error=${encoded}`);
-        }
+    // ignore auth state for now
 
-        if (data.detail == "submitted") {
-            redirect(`/${data.payload}`);
-        } else {
-            let encoded = encodeURIComponent(JSON.stringify(data));
-            redirect(`/?error=${encoded}`);
-        }
-
-        return {}; // dead code
-    }
-
-    return (
-        <div>
-            <div className="header">Hello, let's get analyzing!</div>
-            What task and resources are we working with today?
-            <div style={{height: 13}}>&nbsp;</div>
-            <Form submitForm={submitForm} />
-        </div>
-
-    );
+    return <Home />;
 }
+

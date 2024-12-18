@@ -3,16 +3,19 @@ import "./globals.css";
 
 const robono = Roboto_Mono({
     variable: "--font-robono",
+    subsets: ["latin"]
 });
 
 
 const kanit = Kanit({
     variable: "--font-kanit",
-    weight: ["700"]
+    weight: ["700"],
+    subsets: ["latin"]
 });
 
 const work = Outfit({
-    variable: "--font-outfit"
+    variable: "--font-outfit",
+    subsets: ["latin"]
 });
 
 
@@ -36,7 +39,7 @@ export default function RootLayout({ children }) {
                             {children}
                         </div>
                         <div id="wordmark-box">
-                            <h1>The TalkBank System <t style={{fontWeight: 200}}>|</t> <span>Batchalign</span></h1>
+                            <h1>The TalkBank System <span style={{fontWeight: 200}}>|</span> <span id="wordmark-mark">Batchalign</span></h1>
                             {/* <span id="wordmark-box-version">Batchalign Lite (online version)</span> */}
                         </div>
                     </div>

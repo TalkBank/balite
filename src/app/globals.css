@@ -47,7 +47,7 @@ body {
     @apply text-gray-300;
 }
 
-#wordmark-box > h1 > span {
+#wordmark-box > h1 > #wordmark-mark {
     font-variant: small-caps;
     font-style: italic;
     font-weight: 700;

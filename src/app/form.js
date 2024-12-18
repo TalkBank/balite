@@ -1,10 +1,14 @@
 "use client";
 
-import { useActionState } from "react";
+import { useEffect, useState, useActionState } from "react";
 
 export default function Form( {submitForm} ) {
     const [state, formAction, isPending] = useActionState(submitForm, {});
-    let error = (new URLSearchParams(document.location.search)).get("error");
+    const [error, setError] = useState(undefined);
+
+    useEffect(() => {
+        setError((new URLSearchParams(window.document.location.search)).get("error"));
+    });
 
     return (
         <form action={formAction}>
@@ -12,7 +16,7 @@ export default function Form( {submitForm} ) {
             <select className="job-pane-row-right form-select" type="number" name="command">
                 <option value="asr" className="form-select-option">Transcription</option>
                 <option value="morphosyntax" className="form-select-option">Morpho-Syntactic Analysis</option>
-            </select> <br />
+            </select> <br /> 
 
 
             <label className="job-pane-row-left form-label" htmlFor="lang">Language</label>
