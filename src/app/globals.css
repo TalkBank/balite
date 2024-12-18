@@ -3,12 +3,143 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #fafafa;
   --foreground: #171717;
+  --orange: #DD5E42;
+  --brown: #AD8C34;
+  --yellow: #E8DAB2;
+  --dark-blue: #4F6D7A;
+  --light-blue: #92B9C8;
+  --green: #638A2E;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-outfit), sans-serif;
+  width: 100vw;
+  height: 100vh;
 }
+
+#center {
+    @apply w-full h-full flex items-center justify-center;
+}
+
+#ui-container {
+    max-width: 70vw;
+    border-radius: 5px;
+
+    @apply p-4;
+}
+
+#wordmark-box {
+    margin: 0 auto;
+    width: 100%;
+    pointer-events: none;
+    user-select: none;
+    @apply mt-5 flex items-center flex-col;
+}
+
+#wordmark-box > h1 {
+    text-align: center;
+    font-weight: 500;
+    @apply text-gray-300;
+}
+
+#wordmark-box > h1 > span {
+    font-variant: small-caps;
+    font-style: italic;
+    font-weight: 700;
+    font-family: var(--font-kanit);
+}
+
+
+.header {
+    color: var(--dark-blue);
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.note {
+    color: var(--light-blue);
+}
+
+.refresh-button > span {
+    font-size: 18px;
+}
+
+.refresh-button {
+    transform: translateY(1px);
+    float: right;
+    cursor: pointer;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 20
+}
+
+.info-pane-row {
+    margin-bottom: 3px;
+}
+
+.job-pane-row-left {
+    width: 60px;
+    @apply text-gray-400 mr-1 inline-block;
+}
+
+.job-pane-row-right {
+    @apply inline-block;
+}
+
+
+.job-id {
+    font-family: var(--font-robono), monospace;
+    font-size: 14px;
+    overflow: hidden;
+    transform: translateY(3px);
+    @apply inline-block;
+}
+
+.job-status-badge {
+    display: inlin-block;
+    font-weight: 500;
+    color: white;
+    padding: 3px 5px;
+    border-radius: 3px;
+    font-size: 14px;
+    @apply inline-block;
+}
+
+.job-status-pending {
+    background-color: var(--dark-blue);
+}
+
+.job-status-success {
+    background-color: var(--green);
+}
+
+.job-status-failure {
+    background-color: var(--orange);
+}
+
+.job-status-started {
+    background-color: var(--brown);
+}
+
+.download {
+    color: var(--dark-blue);
+    display: inline-block;
+    border-radius: 5px;
+    font-weight: 600;
+    padding: 5px;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+/* .job-pane */
+
+

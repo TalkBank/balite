@@ -115,16 +115,17 @@ async def poll(id):
 
     id = id.strip()
     task = AsyncResult(id)
+    status = task.status
 
-    if task.status == "PENDING":
+    if status == "PENDING":
         return {"detail": "pending", "status": "ok", "message": "Your annotation job is waiting in queue to be executed, or doesn't exist.", "payload": ""}
-    elif task.status == "STARTED":
+    elif status == "STARTED":
         return {"detail": "started", "status": "ok", "message": "Your annotation job has started and hasn't yet finished.", "payload": ""}
-    elif task.status == "RETRY":
+    elif status == "RETRY":
         return {"detail": "retry", "status": "ok", "message": "Your annotation job is being retried, possibly due to recoverable failure.", "payload": ""}
-    elif task.status == "FAILURE":
+    elif status == "FAILURE":
         return {"detail": "failure", "status": "ok", "message": "Your annotation job has failed.", "payload": str(task.result)}
-    elif task.status == "SUCCESS":
+    elif status == "SUCCESS":
         return {"detail": "success", "status": "ok", "message": "Your annotation job has succeeded.", "payload": id}
 
 @app.get("/download/{id}.cha")
