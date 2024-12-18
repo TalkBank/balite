@@ -2,8 +2,8 @@ from celery import Celery
 import batchalign as ba
 
 grunt = Celery('api',
-             broker='amqp://guest@localhost',
-             backend='rpc://')
+             broker='redis://localhost:6379/0',
+             backend='redis://localhost:6379/0')
 
 grunt.conf.task_track_started = True
 grunt.conf.task_ignore_result = False
