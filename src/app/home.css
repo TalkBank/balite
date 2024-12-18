@@ -1,0 +1,131 @@
+.job-pane-row-left.form-label {
+    width: 150px !important;
+}
+
+.form-break {
+    padding: 7.5px 0 7.5px 0;
+    margin: 8px 0 3.75px 0;
+    vertical-align: middle;
+}
+
+
+.form-break.two {
+    margin: 4px 0 8px 0;
+}
+
+
+.job-pane-row-left, .job-pane-row-right {
+    margin-bottom: 7px;
+}
+
+
+.form-text {
+    padding: 1px 6px;
+    border-radius: 5px;
+    transform: translateX(-2px);
+    text-transform: lowercase;
+    width: 220px;
+}
+
+.form-select {
+    -webkit-appearance:none;
+    transform: translateX(-2px);
+    width: 220px;
+    border-radius: 5px;
+    padding: 2px 6px;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s ease background-color;
+    border: 1px solid #fafafa;
+    @apply bg-gray-100;
+}
+
+
+.form-select:active {
+    border: 1px solid var(--light-blue);
+}
+
+.form-filedrop {
+    border-radius: 5px;
+    transform: translateX(-2px);
+    padding: 2px 0px;
+}
+
+.submit {
+    border: 0;
+    border-radius: 5px;
+    padding: 2px 8px;
+    cursor: pointer;
+    transform: translateX(-2px);
+    transition: 0.3s ease opacity;
+    color: white;
+    background-color: var(--dark-blue);
+    border: 1px solid #fafafa;
+    margin-top: 5px;
+}
+.submit:hover {
+    opacity: 0.7;
+    border: 1px solid #fafafa !important;
+}
+.submit:active {
+    opacity: 0.8;
+    border: 1px solid #fafafa !important;
+}
+
+.submit:focus {
+    opacity: 0.8;
+    border: 1px solid var(--dark-blue) !important;
+}
+
+.form-filedrop::file-selector-button {
+    -webkit-appearance:none;
+    border: 0;
+    border-radius: 5px;
+    padding: 2px 8px;
+    cursor: pointer;
+    transform: translateX(-2px);
+    margin-right: 8px;
+    @apply bg-gray-100;
+    transition: 0.3s ease background-color;
+}
+
+.form-filedrop::file-selector-button:hover {
+    @apply bg-gray-200;
+}
+.form-filedrop::file-selector-button:active {
+    outline: none;
+    @apply bg-gray-200;
+}
+
+.form-select:hover {
+    @apply bg-gray-200;
+}
+.form-select:active {
+    @apply bg-gray-200;
+}
+textarea, input {
+    border: 1px solid #fafafa;
+}
+
+.form-select:focus {
+    border: 1px solid var(--light-blue);
+}
+textarea:focus, input:focus{
+    border: 1px solid var(--light-blue);
+    outline: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+

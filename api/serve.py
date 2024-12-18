@@ -93,7 +93,7 @@ async def submit(
     if transcript_file:
         try:
             doc = ba.CHATFile(path=transcript_file).doc
-        except ba.CHATValidationException as e:
+        except Exception as e:
             response.status_code = status.HTTP_400_BAD_REQUEST
             return {"payload": str(e), "status": "error", "detail": "bad_format", "message": "We recieved a badly formatted CHAT transcript and it didn't pass validation."}
     if audio_file and not transcript_file:
@@ -118,7 +118,7 @@ async def poll(id):
     status = task.status
 
     if status == "PENDING":
-        return {"detail": "pending", "status": "ok", "message": "Your annotation job is waiting in queue to be executed, or doesn't exist.", "payload": ""}
+        return {"detail": "pending", "status": "ok", "message": "Your annotation job is waiting to be executed, or the job doesn't exist.", "payload": ""}
     elif status == "STARTED":
         return {"detail": "started", "status": "ok", "message": "Your annotation job has started and hasn't yet finished.", "payload": ""}
     elif status == "RETRY":

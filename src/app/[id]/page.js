@@ -2,6 +2,8 @@ import { connection } from 'next/server';
 import Refresh from "../components/refresh.js";
 import Link from 'next/link';
 
+import { headers } from "next/headers";
+
 export const revalidate = 1;
 
 export default async function Status( { params } ) {
@@ -14,12 +16,15 @@ export default async function Status( { params } ) {
                                     process.env.API_ENDPOINT);
     const data = await (await fetch(status_endpoint)).json();
 
+    const headerList = await headers();
+    const pathname = headerList.get("x-current-path");
+
     return (
         <div>
             <div className="header">Job status
-                    <Refresh />
+                <Refresh />
             </div>
-            <p className="note">Note: jobs marked as "pending" may not exist.</p>
+            {(data.detail != "success") ? <p className="note">Save a <Link className="link" href={pathname}>link to this page</Link> to check the status of your job.</p> :<p className="note">Visit the link below to download your transcript.</p> }
             <br />
             <div className="info-pane">
                 <div className="info-pane-row">
@@ -58,17 +63,17 @@ export default async function Status( { params } ) {
 
                 {(data.detail == "success") ?
                  <div className="download">
-                     <Link href={`/${id}/download`}>Visit Download Link</Link>
+                     <Link className="underline" href={`/${id}/download`}>Visit Download Link</Link>
                  </div>
                  : 
 
                  <>
-                <br />
-                 <div className="info-pane-row">
-                     <div className="block job-pane-row-left">Information</div>
                      <br />
-                     <div className="block job-pane-row-right">{data.message}</div>
-                 </div>
+                     <div className="info-pane-row">
+                         <div className="block job-pane-row-left">Information</div>
+                         <br />
+                         <div className="block job-pane-row-right">{data.message}</div>
+                     </div>
                  </>
                 }
             </div>

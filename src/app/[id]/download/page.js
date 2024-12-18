@@ -18,9 +18,9 @@ export default async function Download( { params } ) {
 
     return (
         <div>
-            <div className="header">Download </div>
+            <div className="header">Download Page</div>
             <div style={{fontFamily: "var(--font-robono), monospace", color: "var(--dark-blue)", fontSize: "12px", marginBottom: "10px"}}>{id}</div>
-        {(data.status != "error") ? <p className="note">Keep the transcript at a safe place; the download url below will <b>only be valid for a brief period of time</b>.</p> : <p className="note" style={{color: "var(--orange)"}}><b>This URL is no longer valid.</b></p>}
+        {(data.status != "error") ? <p className="note">Please save the transcript; the download button below will <b>only be valid for a brief period of time</b>.</p> : <p className="note" style={{color: "var(--orange)"}}><b>This URL is no longer valid.</b></p>}
 
             {(data.status != "error") ? <Serve name={`${id}.cha`} blob={blob} /> : <></>}
         </div>

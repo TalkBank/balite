@@ -26,7 +26,8 @@ body {
 }
 
 #ui-container {
-    max-width: 70vw;
+    width: 420px;
+    max-width: 80vw;
     border-radius: 5px;
 
     @apply p-4;
@@ -66,12 +67,26 @@ body {
 
 .refresh-button > span {
     font-size: 18px;
+    transform: translateY(1.5px);
 }
 
 .refresh-button {
-    transform: translateY(1px);
+    padding: 0px 5.5px;
+    border-radius: 6px;
+    transform: translate(3px, -2px);
     float: right;
     cursor: pointer;
+    transition: 0.3s ease background-color;
+    user-select: none;
+}
+
+.refresh-button:hover {
+    @apply bg-gray-100
+}
+
+
+.refresh-button:active {
+    @apply bg-gray-300
 }
 
 .material-symbols-outlined {
@@ -140,6 +155,47 @@ body {
     margin-top: 10px;
 }
 
-/* .job-pane */
+.link {
+    text-decoration: underline;
+}
+.loaderbox {
+    display: inline-block;
+    transform: translate(14px, 4px);
+}
 
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #acacac;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
 
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 
+
+.error-header {
+    color: var(--orange);
+    font-weight: 700;
+}
+
+.error-message {
+    color: var(--orange);
+}
+
+.error-text {
+    font-family: var(--font-robono), monospace;
+    margin: 5px 0 15px 0;
+    font-size: 13px;
+
+    @apply text-gray-400;
+}
