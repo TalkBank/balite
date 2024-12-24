@@ -10,7 +10,7 @@ export default function Refresh() {
     useEffect(() => {
         let interval = setInterval(() => {
             router.refresh();
-        }, 1000);
+        }, 5000);
 
         return () => {clearInterval(interval);};
     }, []);
