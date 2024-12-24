@@ -34,7 +34,7 @@ export default async function RootLayout({ children }) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Cookie': `talkbank=${cookie.value}`
+            'Cookie': `talkbank=${cookie ? cookie.value : ""}`
         },
         body: JSON.stringify({rootName: 'data', path: 'whisper'})
     })).json();
