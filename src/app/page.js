@@ -1,5 +1,5 @@
 import Home from "./home.js";
-import Auth from "./auth.js";
+// import Auth from "./auth.js";
 
 export default async function App() {
     const data = await (await fetch('https://sla2.talkbank.org/sessionHasAuth', {
