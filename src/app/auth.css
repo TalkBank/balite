@@ -1,0 +1,9 @@
+p {
+    padding: 3px 0;
+}
+
+.smallnote {
+    font-size: 12px;
+    color: var(--light-blue);
+    padding-top: 13px;
+}

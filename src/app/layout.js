@@ -1,5 +1,6 @@
 import { Kanit, Outfit, Roboto_Mono } from "next/font/google";
 import "./globals.css";
+import Auth from "./auth.js";
 
 const robono = Roboto_Mono({
     variable: "--font-robono",
@@ -24,7 +25,16 @@ export const metadata = {
     description: "language sample analysis, now online ",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+    const data = await (await fetch('https://sla2.talkbank.org/sessionHasAuth', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({rootName: 'data', path: 'whisper'})
+    })).json();
+
     return (
         <html lang="en">
             <head>
@@ -34,15 +44,16 @@ export default function RootLayout({ children }) {
                 className={`${robono.variable} ${kanit.variable} ${work.variable} antialiased`}
             >
                 <div id="center">
-                    <div>
-                        <div id="ui-container">
-                            {children}
-                        </div>
-                        <div id="wordmark-box">
-                            <h1>The TalkBank System <span style={{fontWeight: 200}}>|</span> <span id="wordmark-mark">Batchalign</span></h1>
-                            {/* <span id="wordmark-box-version">Batchalign Lite (online version)</span> */}
-                        </div>
-                    </div>
+                    {data.auth ? 
+                     <div>
+                         <div id="ui-container">
+                             {children}
+                         </div>
+                         <div id="wordmark-box">
+                             <h1>The TalkBank System <span style={{fontWeight: 200}}>|</span> <span id="wordmark-mark">Batchalign</span></h1>
+                         </div>
+                     </div>
+                     : <div id="ui-container"><Auth state={data}/></div>}
                 </div>
             </body>
         </html>
