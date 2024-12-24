@@ -199,3 +199,19 @@ body {
 
     @apply text-gray-400;
 }
+
+.logout {
+    border: 0;
+    border-radius: 5px;
+    padding: 2px 8px;
+    cursor: pointer;
+    transform: translateX(-2px);
+    transition: 0.3s ease opacity;
+    margin-top: 9px;
+    color: var(--dark-blue) !important;
+    background-color: var(--white) !important;
+    font-weight: 700 !important;
+    border: 2px solid var(--dark-blue) !important;
+    font-size: 13px;
+}
+

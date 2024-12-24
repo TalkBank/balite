@@ -2,6 +2,20 @@
 
 import { useEffect, useState, useActionState } from "react";
 
+async function logout() {
+    const logoutResp = await fetch('https://sla2.talkbank.org/logOutUser', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    
+    const logoutStatus = await logoutResp.json();
+    
+    window.location.reload();
+}
+
 export default function Form( {submitForm} ) {
     const [state, formAction, isPending] = useActionState(submitForm, {});
     const [error, setError] = useState(undefined);
@@ -46,6 +60,7 @@ export default function Form( {submitForm} ) {
              </div> : <></>}
 
             <input className="submit" type="submit" value="Submit" />
+            <a className="float-right logout" type="button" onClick={logout}>Logout</a>
             {isPending ? <div className="loaderbox"><span className="loader"></span></div> : <></>}
         </form>
     );

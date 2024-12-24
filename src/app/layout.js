@@ -49,7 +49,7 @@ export default async function RootLayout({ children }) {
                 className={`${robono.variable} ${kanit.variable} ${work.variable} antialiased`}
             >
                 <div id="center">
-                    {data.auth ? 
+                    {!data.auth ? 
                      <div>
                          <div id="ui-container">
                              {children}
