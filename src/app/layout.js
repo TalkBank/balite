@@ -1,6 +1,7 @@
 import { Kanit, Outfit, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import Auth from "./auth.js";
+import { cookies } from 'next/headers';
 
 const robono = Roboto_Mono({
     variable: "--font-robono",
@@ -26,14 +27,18 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
+    const store = await cookies();
+    const cookie = store.get("talkbank");
+
     const data = await (await fetch('https://sla2.talkbank.org/sessionHasAuth', {
         method: 'POST',
-        credentials: 'include',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Cookie': `talkbank=${cookie.value}`
         },
         body: JSON.stringify({rootName: 'data', path: 'whisper'})
     })).json();
+
 
     return (
         <html lang="en">
