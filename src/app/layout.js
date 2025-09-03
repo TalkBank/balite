@@ -3,6 +3,12 @@ import "./globals.css";
 import Auth from "./auth.js";
 import { cookies } from 'next/headers';
 
+
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+config.autoAddCss = false;
+
+
 const robono = Roboto_Mono({
     variable: "--font-robono",
     subsets: ["latin"]
@@ -30,14 +36,16 @@ export default async function RootLayout({ children }) {
     const store = await cookies();
     const cookie = store.get("talkbank");
 
-    const data = await (await fetch('https://sla2.talkbank.org/sessionHasAuth', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Cookie': `talkbank=${cookie ? cookie.value : ""}`
-        },
-        body: JSON.stringify({rootName: 'data', path: 'whisper'})
-    })).json();
+    const data = process.env.NODE_ENV === 'development' 
+          ? { auth: true }
+          : await (await fetch('https://sla2.talkbank.org/sessionHasAuth', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Cookie': `talkbank=${cookie ? cookie.value : ""}`
+              },
+              body: JSON.stringify({rootName: 'data', path: 'whisper'})
+          })).json();
 
 
     return (

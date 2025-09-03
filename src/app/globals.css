@@ -26,7 +26,7 @@ body {
 }
 
 #ui-container {
-    width: 420px;
+    width: 500px;
     max-width: 80vw;
     border-radius: 5px;
 
@@ -38,6 +38,7 @@ body {
     width: 100%;
     pointer-events: none;
     user-select: none;
+    transform: translateX(-13px);
     @apply mt-5 flex items-center flex-col;
 }
 
@@ -215,3 +216,12 @@ body {
     font-size: 13px;
 }
 
+.xbutton {
+    color: #999999;
+    padding: 5px 10px;
+    transition: 0.3s ease;
+}
+
+.xbutton:hover {
+    color: #f55a42;
+}
