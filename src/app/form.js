@@ -44,7 +44,7 @@ export default function Form( {submitForm} ) {
             <label className="job-pane-row-left form-label" htmlFor="num_speakers">Task</label>
             <select className="job-pane-row-right form-select" type="number" name="command">
                 <option value="asr" className="form-select-option">Transcription</option>
-                <option value="morphosyntax" className="form-select-option">Morpho-Syntactic Analysis</option>
+                <option value="morphosyntax" className="form-select-option">Morphosyntactic Analysis</option>
             </select> <br /> 
 
 
