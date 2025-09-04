@@ -23,7 +23,7 @@
     padding: 1px 6px;
     border-radius: 5px;
     transform: translateX(-2px);
-    text-transform: lowercase;
+    /* text-transform: lowercase; */
     width: 220px;
 }
 
