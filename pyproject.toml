@@ -5,7 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "batchalign>=0.7.7a4",
+    "batchalign>=0.7.21.post5",
     "celery[redis]>=5.4.0",
     "fastapi[standard]>=0.115.6",
     "gunicorn>=23.0.0",
