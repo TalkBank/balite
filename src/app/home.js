@@ -48,9 +48,10 @@ export default function Home() {
                     method: "POST",
                     body: resourceFormData
                 })).json();
-            } catch (_) {
+            } catch (e) {
+                console.warn(e);
                 // If any fetch fails, fail everything
-                let encoded = encodeURIComponent(JSON.stringify({"message": "We encountered an internal server error when processing your transcript. Please try again or reach out for help.", "payload": ""}));
+                let encoded = encodeURIComponent(JSON.stringify({"message": "We encountered an internal server error when processing your transcript. Please try again or reach out for help.", "payload": JSON.stringify(e, Object.getOwnPropertyNames(e))}));
                 redirect(`/?error=${encoded}`);
             }
             
