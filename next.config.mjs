@@ -5,6 +5,7 @@ const nextConfig = {
       "https://sla2.talkbank.org/authUI/authModals.js",
       "https://sla2.talkbank.org/authUI/authModalsCSS.js"
     ],
+    middlewareClientMaxBodySize: '2gb',
     serverActions: {
       bodySizeLimit: '2gb',
       allowedOrigins: [
